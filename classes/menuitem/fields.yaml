@@ -67,3 +67,12 @@ tabs:
             comment: Open links for this menu item in a new window.
             type: checkbox
             tab: Attributes
+
+        viewBag[altColour]:
+            label: Alternative Colour Enabled
+            type: checkbox
+            default: true
+
+        viewBag[fontColour]:
+            label: Alternative Colour
+            default: ''
