@@ -165,4 +165,8 @@ class PageList extends WidgetBase
     {
         return parent::putSession($this->getThemeSessionKey($key), $value);
     }
+    
+    protected function getCollapseStatus(){
+        
+    }
 }
