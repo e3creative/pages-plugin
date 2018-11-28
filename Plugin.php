@@ -1,7 +1,9 @@
 <?php namespace RainLab\Pages;
 
+use E3Creative\Pages\Models\Page;
 use Event;
 use Backend;
+use Illuminate\Support\Facades\View;
 use RainLab\Pages\Classes\Controller;
 use RainLab\Pages\Classes\Page as StaticPage;
 use RainLab\Pages\Classes\Router;
@@ -13,6 +15,10 @@ use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
 {
+    protected $contactSlug = '/contact';
+    protected $privacySlug = '/privacy';
+    protected $termsSlug = '/terms';
+
     public function pluginDetails()
     {
         return [
@@ -202,6 +208,9 @@ class Plugin extends PluginBase
                 return StaticPage::getRichEditorTypeInfo($type);
             }
         });
+
+        View::share('termsLink', Page::whereSlug($this->termsSlug)->first()->fullUrl());
+        View::share('privacyLink', Page::whereSlug($this->privacySlug)->first()->fullUrl());
     }
 
     /**
