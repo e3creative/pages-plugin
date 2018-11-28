@@ -209,6 +209,7 @@ class Plugin extends PluginBase
             }
         });
 
+        View::share('contactLink', Page::whereSlug($this->contactSlug)->first()->fullUrl());
         View::share('termsLink', Page::whereSlug($this->termsSlug)->first()->fullUrl());
         View::share('privacyLink', Page::whereSlug($this->privacySlug)->first()->fullUrl());
     }
